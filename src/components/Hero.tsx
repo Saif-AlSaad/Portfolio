@@ -131,7 +131,7 @@ export default function Hero({ started }: { started: boolean }) {
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-smoke">Focus</span>
-                  <span className="font-medium">Product Engineering · Applied AI</span>
+                  <span className="font-medium">Software Engineering · SQA & Testing</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-smoke">Status</span>

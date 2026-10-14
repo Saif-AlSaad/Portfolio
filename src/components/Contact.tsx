@@ -22,7 +22,7 @@ function LocalClock() {
     const id = setInterval(update, 1000);
     return () => clearInterval(id);
   }, []);
-  return <span className="tabular-nums">{time} IST</span>;
+  return <span className="tabular-nums">{time} BST</span>;
 }
 
 export default function Contact() {

@@ -12,7 +12,7 @@ export default function About() {
   return (
     <section id="about" className="relative px-6 py-24 md:px-10 md:py-36">
       <div className="mx-auto max-w-[1200px]">
-        <SectionHeading index="01" eyebrow="Profile" title="A builder with a researcher's rigor" accentWord="rigor" />
+        <SectionHeading index="01" eyebrow="Profile" title="A software engineer with an eye for quality and precision" accentWord="quality" />
 
         <div className="grid gap-14 lg:grid-cols-12 lg:gap-12">
           {/* bio */}
@@ -64,7 +64,7 @@ export default function About() {
                     className="h-[112%] w-full object-cover"
                   />
                   <span className="absolute bottom-3 left-3 rounded-full bg-white/90 px-3 py-1 font-mono text-[10px] uppercase tracking-wider text-ink backdrop-blur">
-                    The workspace · Bengaluru
+                    The workspace · Dhaka
                   </span>
                 </div>
               </div>
@@ -72,10 +72,10 @@ export default function About() {
             <FadeUp delay={0.2}>
               <blockquote className="mt-6 rounded-2xl border-l-4 border-royal bg-white p-6 shadow-sm">
                 <p className="font-display text-lg font-medium leading-relaxed tracking-tight">
-                  "The best interfaces disappear — what's left is intent, met exactly where it lives."
+                  "Quality is never an accident — it is the result of intelligent effort, clear design, and relentless testing."
                 </p>
                 <footer className="mt-3 font-mono text-[11px] uppercase tracking-[0.2em] text-smoke">
-                  — personal design principle
+                  — personal engineering principle
                 </footer>
               </blockquote>
             </FadeUp>
