@@ -40,7 +40,7 @@ export default function Preloader({ onComplete }: PreloaderProps) {
         transition={{ duration: 0.6, ease: EASE }}
         className="grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-royal to-indigo-500 font-display text-lg font-bold text-white shadow-lg shadow-royal/30"
       >
-        AS
+        SA
       </motion.div>
       <motion.p
         initial={{ opacity: 0, y: 14 }}

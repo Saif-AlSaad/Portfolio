@@ -45,7 +45,7 @@ export default function Hero({ started }: { started: boolean }) {
                   animate={started ? { y: 0 } : {}}
                   transition={{ duration: 1, ease: EASE, delay: 0.3 }}
                 >
-                  Aarav Sharma
+                  {profile.name}
                 </motion.span>
               </span>
               <span className="block overflow-hidden pb-[0.12em] -mb-[0.12em]">
@@ -106,7 +106,7 @@ export default function Hero({ started }: { started: boolean }) {
                 <div className="relative">
                   <img
                     src="./images/portrait.jpg"
-                    alt="Aarav Sharma"
+                    alt={profile.name}
                     className="h-16 w-16 rounded-2xl object-cover"
                   />
                   <span className="absolute -bottom-1 -right-1 grid h-5 w-5 place-items-center rounded-full border-2 border-white bg-mint">

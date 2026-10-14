@@ -39,9 +39,9 @@ export default function Navbar({ started }: { started: boolean }) {
             className="mr-2 flex items-center gap-2.5 rounded-full py-1 pl-1 pr-2 transition-colors hover:bg-cloud"
           >
             <span className="grid h-8 w-8 place-items-center rounded-full bg-gradient-to-br from-royal to-indigo-500 font-display text-[11px] font-bold text-white">
-              AS
+              SA
             </span>
-            <span className="hidden font-display text-sm font-bold tracking-tight sm:block">aarav.dev</span>
+            <span className="hidden font-display text-sm font-bold tracking-tight sm:block">saif.dev</span>
           </button>
 
           <div className="hidden items-center lg:flex">
