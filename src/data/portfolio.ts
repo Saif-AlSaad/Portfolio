@@ -72,7 +72,7 @@ export const skillGroups: SkillGroup[] = [
     index: "01",
     title: "Languages",
     blurb: "Polyglot by need, precise by choice.",
-    items: ["TypeScript", "Python", "Go", "Rust", "C++", "SQL"],
+    items: ["C", "Java", "Python", "JavaScript", "TypeScript", "SQL"],
   },
   {
     id: "frontend",
@@ -122,7 +122,7 @@ export const tickerSkills = [
   "AWS",
   "Three.js",
   "Figma",
-  "Rust",
+  "JavaScript",
   "GraphQL",
   "FastAPI",
   "Kubernetes",
