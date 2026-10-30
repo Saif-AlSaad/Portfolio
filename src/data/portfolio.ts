@@ -190,7 +190,7 @@ export const projects: Project[] = [
       "A high-performance browser-based 3D room & furniture planner built with React Three Fiber and Three.js. Features real dimensions, 44 procedural models, SAT collision detection, circulation clearances, and 60 FPS WebGL rendering with zero asset downloads.",
     tags: ["React Three Fiber", "Three.js", "TypeScript", "Zustand", "Tailwind CSS"],
     metrics: ["60 FPS @ 120 Objects", "44 Procedural Models", "126 Unit Tests"],
-    image: "./images/project-virtualroom.png",
+    image: "./images/project-virtualroom.jpg",
     link: "https://saif-alsaad.github.io/VirtualRoom/",
     repo: "https://github.com/Saif-AlSaad/VirtualRoom",
   },
