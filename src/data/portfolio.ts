@@ -79,7 +79,7 @@ export const skillGroups: SkillGroup[] = [
     index: "02",
     title: "Frontend",
     blurb: "Interfaces that feel inevitable.",
-    items: ["React", "Next.js", "Tailwind CSS", "Framer Motion", "Three.js", "React Native"],
+    items: ["HTML", "CSS", "React", "Next.js", "Tailwind CSS", "Three.js"],
   },
   {
     id: "backend",
