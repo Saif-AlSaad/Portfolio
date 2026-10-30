@@ -167,18 +167,18 @@ export const topSkills = [
 
 export const projects: Project[] = [
   {
-    id: "nebula",
+    id: "fintrack",
     index: "01",
-    title: "Nebula",
-    category: "AI Developer Tooling",
+    title: "FinTrack",
+    category: "Personal Finance Dashboard",
     year: "2025",
     description:
-      "LLM code-review copilot with repo-level RAG context. Catches bugs, style drift and security smells — adopted by 3 startups in private beta.",
-    tags: ["TypeScript", "Next.js", "FastAPI", "pgvector", "GPT-4o"],
-    metrics: ["3 startups in beta", "−62% review time", "Repo-level RAG"],
-    image: "./images/project-nebula.jpg",
-    link: "#",
-    repo: "#",
+      "A modern, responsive personal finance dashboard to track income, expenses, budgets, and savings with interactive Chart.js analytics, dynamic health scoring, and LocalStorage persistence.",
+    tags: ["JavaScript", "HTML5", "CSS3", "Chart.js", "LocalStorage"],
+    metrics: ["Dynamic Budgeting", "Interactive Analytics", "Full CRUD Tracking"],
+    image: "./images/project-fintrack.jpg",
+    link: "https://saif-alsaad.github.io/FinTrack/",
+    repo: "https://github.com/Saif-AlSaad/FinTrack",
   },
   {
     id: "pulse",

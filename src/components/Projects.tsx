@@ -19,7 +19,7 @@ export default function Projects() {
           accentWord="measurable"
           right={
             <a
-              href="https://github.com"
+              href="https://github.com/Saif-AlSaad"
               target="_blank"
               rel="noreferrer"
               className="group flex items-center gap-2 rounded-full border border-line bg-white px-5 py-2.5 text-sm font-semibold text-smoke shadow-sm transition-colors hover:border-royal/40 hover:text-royal"
@@ -94,13 +94,17 @@ export default function Projects() {
                 <div className="mt-8 flex items-center gap-5 border-t border-line pt-6">
                   <a
                     href={project.link}
+                    target={project.link.startsWith("http") ? "_blank" : undefined}
+                    rel={project.link.startsWith("http") ? "noopener noreferrer" : undefined}
                     className="group/link flex items-center gap-2 text-sm font-semibold text-royal"
                   >
-                    View case study
+                    {project.link.startsWith("http") ? "Live demo" : "View case study"}
                     <ArrowRight size={15} className="transition-transform duration-300 group-hover/link:translate-x-1.5" />
                   </a>
                   <a
                     href={project.repo}
+                    target={project.repo.startsWith("http") ? "_blank" : undefined}
+                    rel={project.repo.startsWith("http") ? "noopener noreferrer" : undefined}
                     className="flex items-center gap-2 text-sm font-medium text-smoke transition-colors hover:text-ink"
                   >
                     <GithubIcon size={15} /> Source
