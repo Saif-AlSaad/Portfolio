@@ -9,8 +9,6 @@ import {
   Check,
   GraduationCap,
   Cpu,
-  Star,
-  Sparkles,
 } from "lucide-react";
 import { profile } from "../data/portfolio";
 import { EASE } from "./typography";
@@ -89,38 +87,11 @@ export default function HeroCard({ started }: { started: boolean }) {
 
   return (
     <div
-      className="relative mx-auto w-full max-w-[460px] pt-6 pb-4 px-1 sm:px-0"
+      className="relative mx-auto w-full max-w-[460px] pt-2 pb-4 px-1 sm:px-0"
       style={{ perspective: 1200 }}
     >
       {/* Background ambient neon glow aura */}
       <div className="pointer-events-none absolute -inset-8 rounded-[3rem] bg-gradient-to-tr from-royal/20 via-indigo-400/15 to-mint/20 blur-3xl opacity-80" />
-
-      {/* Floating Badge 1: Academic Honors (Top Left) */}
-      <motion.div
-        initial={{ opacity: 0, y: -20, scale: 0.8 }}
-        animate={started ? { opacity: 1, y: 0, scale: 1 } : {}}
-        transition={{ duration: 0.75, ease: EASE, delay: 0.85 }}
-        whileHover={{ y: -5, scale: 1.04 }}
-        className="absolute left-2 -top-1 sm:-left-5 sm:-top-3 z-30 flex items-center gap-3 rounded-2xl border border-white/80 bg-white/95 px-3.5 py-2.5 sm:px-4 sm:py-3 shadow-[0_12px_32px_rgba(37,99,235,0.14)] backdrop-blur-xl transition-all"
-      >
-        <div className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-xl bg-gradient-to-br from-royal via-royal to-indigo-600 text-white shadow-md shadow-royal/30">
-          <GraduationCap size={20} className="sm:size-[22px]" />
-        </div>
-        <div>
-          <div className="flex items-baseline gap-1.5">
-            <span className="font-display text-2xl sm:text-3xl font-black tracking-tight text-royal">
-              9.1
-            </span>
-            <span className="font-mono text-[11px] sm:text-xs font-semibold text-smoke">/ 10</span>
-            <span className="ml-0.5 inline-flex items-center gap-0.5 rounded-full bg-amber-500/10 px-1.5 py-0.5 font-mono text-[9px] font-bold text-amber-700">
-              <Star size={9} className="fill-amber-500 text-amber-500" /> TOP 5%
-            </span>
-          </div>
-          <p className="font-mono text-[10px] uppercase tracking-wider text-smoke font-medium">
-            CGPA · SWE Honor Roll
-          </p>
-        </div>
-      </motion.div>
 
       {/* Floating Badge 2: SQA Reliability (Bottom Right) */}
       <motion.div

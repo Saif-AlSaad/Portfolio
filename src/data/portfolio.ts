@@ -52,8 +52,8 @@ export const about = {
   ],
   recognition: [
     { title: "B.Sc. in Software Engineering", detail: "Daffodil International University" },
+    { title: "Academic Standing", detail: "CGPA: 3.81 out of 4 · High Distinction" },
     { title: "Major in SQA & Testing", detail: "Automated testing, QA strategies & verification" },
-    { title: "Test Automation & Tooling", detail: "Selenium, Cypress, Postman, Jest & CI/CD" },
     { title: "Quality-Driven Development", detail: "Unit, integration, performance & regression testing" },
   ],
 };

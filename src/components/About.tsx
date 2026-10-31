@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { CheckCircle2, Sparkles } from "lucide-react";
+import { CheckCircle2, Sparkles, GraduationCap } from "lucide-react";
 import { about } from "../data/portfolio";
 import { FadeUp, SectionHeading, SplitWords } from "./typography";
 
@@ -27,9 +27,15 @@ export default function About() {
 
             <FadeUp delay={0.15} className="mt-10">
               <div className="card rounded-2xl p-6 md:p-7">
-                <p className="flex items-center gap-2 font-display text-base font-bold">
-                  <Sparkles size={16} className="text-royal" /> Highlights
-                </p>
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <p className="flex items-center gap-2 font-display text-base font-bold">
+                    <Sparkles size={16} className="text-royal" /> Highlights & Credentials
+                  </p>
+                  <div className="inline-flex items-center gap-2 rounded-full border border-royal/20 bg-royal/[0.06] px-3.5 py-1 text-xs font-semibold text-royal shadow-xs">
+                    <GraduationCap size={15} />
+                    <span className="font-mono font-bold">CGPA: 3.81 out of 4</span>
+                  </div>
+                </div>
                 <div className="mt-5 grid gap-x-8 sm:grid-cols-2">
                   {about.recognition.map((r, i) => (
                     <motion.div
@@ -69,6 +75,34 @@ export default function About() {
                 </div>
               </div>
             </FadeUp>
+
+            {/* Academic Standing Card */}
+            <FadeUp delay={0.15}>
+              <div className="mt-6 flex items-center justify-between rounded-2xl border border-line bg-white p-5 shadow-xs transition-all duration-300 hover:border-royal/30 hover:shadow-md">
+                <div className="flex items-center gap-3.5">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-royal via-royal to-indigo-600 text-white shadow-md shadow-royal/25">
+                    <GraduationCap size={22} />
+                  </div>
+                  <div>
+                    <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-royal">
+                      Academic Standing
+                    </span>
+                    <p className="font-display text-base font-bold text-ink">B.Sc. in Software Engineering</p>
+                    <p className="text-xs text-smoke">Daffodil International University</p>
+                  </div>
+                </div>
+                <div className="text-right shrink-0">
+                  <div className="flex items-baseline justify-end gap-1">
+                    <span className="font-display text-2xl font-black tracking-tight text-royal">3.81</span>
+                    <span className="font-mono text-xs font-semibold text-smoke">/ 4.0</span>
+                  </div>
+                  <span className="inline-block rounded-full bg-mint/10 px-2 py-0.5 font-mono text-[10px] font-bold text-mint uppercase tracking-wider">
+                    CGPA: 3.81 out of 4
+                  </span>
+                </div>
+              </div>
+            </FadeUp>
+
             <FadeUp delay={0.2}>
               <blockquote className="mt-6 rounded-2xl border-l-4 border-royal bg-white p-6 shadow-sm">
                 <p className="font-display text-lg font-medium leading-relaxed tracking-tight">
