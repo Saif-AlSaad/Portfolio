@@ -5,48 +5,18 @@ import {
   BadgeCheck,
   ShieldCheck,
   Clock,
-  Sparkles,
   Copy,
   Check,
   GraduationCap,
   Cpu,
   Star,
-  ExternalLink,
-  Code2,
-  Terminal,
+  Sparkles,
 } from "lucide-react";
 import { profile } from "../data/portfolio";
-import { GithubIcon, LinkedinIcon } from "./icons";
 import { EASE } from "./typography";
-
-interface TechItem {
-  name: string;
-  badge?: string;
-  highlight?: boolean;
-}
-
-const TECH_CATEGORIES: Record<"core" | "testing", TechItem[]> = {
-  core: [
-    { name: "React 19", highlight: true, badge: "v19" },
-    { name: "TypeScript", highlight: true },
-    { name: "Python", highlight: false },
-    { name: "PyTorch", highlight: false },
-    { name: "Node.js", highlight: false },
-    { name: "AWS", highlight: false },
-  ],
-  testing: [
-    { name: "Selenium", highlight: true },
-    { name: "Cypress", highlight: true },
-    { name: "Postman", highlight: false },
-    { name: "Jest", highlight: false },
-    { name: "CI/CD Gates", highlight: true, badge: "100%" },
-    { name: "Docker", highlight: false },
-  ],
-};
 
 export default function HeroCard({ started }: { started: boolean }) {
   const [copied, setCopied] = useState(false);
-  const [activeTab, setActiveTab] = useState<"core" | "testing">("core");
   const [timeString, setTimeString] = useState("");
   const cardRef = useRef<HTMLDivElement>(null);
 
@@ -94,8 +64,8 @@ export default function HeroCard({ started }: { started: boolean }) {
   const smoothX = useSpring(mouseX, springConfig);
   const smoothY = useSpring(mouseY, springConfig);
 
-  const rotateX = useTransform(smoothY, [-0.5, 0.5], [7, -7]);
-  const rotateY = useTransform(smoothX, [-0.5, 0.5], [-7, 7]);
+  const rotateX = useTransform(smoothY, [-0.5, 0.5], [6, -6]);
+  const rotateY = useTransform(smoothX, [-0.5, 0.5], [-6, 6]);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current) return;
@@ -107,7 +77,7 @@ export default function HeroCard({ started }: { started: boolean }) {
     setGlarePos({
       x: e.clientX - rect.left,
       y: e.clientY - rect.top,
-      opacity: 0.65,
+      opacity: 0.6,
     });
   };
 
@@ -119,7 +89,7 @@ export default function HeroCard({ started }: { started: boolean }) {
 
   return (
     <div
-      className="relative mx-auto w-full max-w-[490px] pt-7 pb-6 px-1 sm:px-0"
+      className="relative mx-auto w-full max-w-[460px] pt-6 pb-4 px-1 sm:px-0"
       style={{ perspective: 1200 }}
     >
       {/* Background ambient neon glow aura */}
@@ -158,7 +128,7 @@ export default function HeroCard({ started }: { started: boolean }) {
         animate={started ? { opacity: 1, y: 0, scale: 1 } : {}}
         transition={{ duration: 0.75, ease: EASE, delay: 1 }}
         whileHover={{ y: -4, scale: 1.04 }}
-        className="absolute right-2 -bottom-2 sm:-right-4 sm:-bottom-4 z-30 flex items-center gap-2.5 rounded-full border border-mint/30 bg-white/95 px-3.5 py-2 sm:px-4 sm:py-2.5 shadow-[0_10px_28px_rgba(14,169,104,0.18)] backdrop-blur-xl transition-all"
+        className="absolute right-2 -bottom-2 sm:-right-4 sm:-bottom-3 z-30 flex items-center gap-2.5 rounded-full border border-mint/30 bg-white/95 px-3.5 py-2 sm:px-4 sm:py-2.5 shadow-[0_10px_28px_rgba(14,169,104,0.18)] backdrop-blur-xl transition-all"
       >
         <span className="relative flex h-2.5 w-2.5">
           <span className="absolute h-full w-full animate-ping rounded-full bg-mint opacity-75" />
@@ -184,7 +154,7 @@ export default function HeroCard({ started }: { started: boolean }) {
         initial={{ opacity: 0, y: 40 }}
         animate={started ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.9, ease: EASE, delay: 0.55 }}
-        className="group relative overflow-hidden rounded-[2.2rem] border border-white/80 bg-gradient-to-b from-white/95 via-white/90 to-white/85 p-6 md:p-7 shadow-[0_22px_60px_-15px_rgba(12,18,34,0.12),0_1px_2px_rgba(12,18,34,0.04)] backdrop-blur-2xl transition-all duration-300 hover:shadow-[0_28px_75px_-12px_rgba(37,99,235,0.22),0_0_0_1px_rgba(37,99,235,0.2)]"
+        className="group relative overflow-hidden rounded-[2.2rem] border border-white/80 bg-gradient-to-b from-white/95 via-white/90 to-white/85 p-5 sm:p-6 shadow-[0_22px_60px_-15px_rgba(12,18,34,0.12),0_1px_2px_rgba(12,18,34,0.04)] backdrop-blur-2xl transition-all duration-300 hover:shadow-[0_28px_75px_-12px_rgba(37,99,235,0.22),0_0_0_1px_rgba(37,99,235,0.2)]"
       >
         {/* Iridescent Top Accent Sheen */}
         <div className="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-royal/60 to-transparent" />
@@ -199,7 +169,7 @@ export default function HeroCard({ started }: { started: boolean }) {
         />
 
         {/* Card Header: Security Pass & Verified Tag */}
-        <div className="flex items-center justify-between border-b border-line pb-4">
+        <div className="flex items-center justify-between border-b border-line pb-3.5">
           <div className="flex items-center gap-2">
             <span className="relative flex h-2 w-2">
               <span className="absolute h-full w-full animate-ping rounded-full bg-mint opacity-70" />
@@ -221,201 +191,104 @@ export default function HeroCard({ started }: { started: boolean }) {
           </div>
         </div>
 
-        {/* Profile Hero / Avatar & Identity */}
-        <div className="mt-5 flex items-start gap-4">
-          <div className="relative shrink-0">
-            <div className="h-17 w-17 sm:h-18 sm:w-18 overflow-hidden rounded-2xl border-2 border-white shadow-md shadow-royal/10 ring-2 ring-royal/20">
-              <img
-                src="./images/portrait.jpg"
-                alt={profile.name}
-                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-            </div>
-            <span
-              className="absolute -bottom-1 -right-1 grid h-5 w-5 place-items-center rounded-full border-2 border-white bg-mint shadow-sm"
-              title="Verified Engineer"
-            >
-              <BadgeCheck size={12} className="text-white" />
-            </span>
+        {/* Large Prominent Portrait Image Section */}
+        <div className="relative mt-4 overflow-hidden rounded-2xl border border-line/80 bg-cloud shadow-sm">
+          <img
+            src="./images/portrait.jpg"
+            alt={profile.name}
+            className="h-72 sm:h-80 w-full object-cover object-top transition-transform duration-700 group-hover:scale-103"
+          />
+
+          {/* Subtle gradient overlay at bottom of photo for depth */}
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/50 via-black/20 to-transparent" />
+
+          {/* Verification Badge Docked in Photo */}
+          <div className="absolute bottom-3 left-3 flex items-center gap-1.5 rounded-full border border-white/30 bg-white/90 px-3 py-1 font-mono text-[10px] font-semibold text-ink shadow-md backdrop-blur-md">
+            <BadgeCheck size={13} className="text-mint fill-mint/20" />
+            <span>Verified Software Engineer</span>
           </div>
 
-          {/* Identity details */}
-          <div className="flex-1 min-w-0">
-            <div className="flex items-center justify-between gap-2">
-              <h3 className="font-display text-xl sm:text-2xl font-bold tracking-tight text-ink truncate">
-                {profile.name}
-              </h3>
+          {/* Open to offers pill overlay */}
+          <div className="absolute top-3 right-3 flex items-center gap-1.5 rounded-full border border-mint/30 bg-ink/80 px-2.5 py-1 font-mono text-[10px] font-medium text-white shadow-md backdrop-blur-md">
+            <span className="h-1.5 w-1.5 rounded-full bg-mint animate-pulse" />
+            <span className="text-mint font-semibold">Available</span>
+          </div>
+        </div>
 
-              {/* Copy Email Action Button */}
-              <button
-                type="button"
-                onClick={handleCopy}
-                className="group/btn relative flex h-7 w-7 items-center justify-center rounded-lg border border-line bg-cloud text-smoke transition-all duration-200 hover:border-royal/40 hover:bg-royal/5 hover:text-royal"
-                title="Copy email to clipboard"
-                aria-label="Copy email"
-              >
-                {copied ? <Check size={13} className="text-mint" /> : <Copy size={13} />}
-                <AnimatePresence>
-                  {copied && (
-                    <motion.span
-                      initial={{ opacity: 0, y: 4, scale: 0.9 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, scale: 0.9 }}
-                      className="absolute -top-7 left-1/2 -translate-x-1/2 rounded bg-ink px-1.5 py-0.5 font-mono text-[9px] font-medium text-white shadow-lg whitespace-nowrap z-20"
-                    >
-                      Copied!
-                    </motion.span>
-                  )}
-                </AnimatePresence>
-              </button>
-            </div>
-
+        {/* Profile Identity Details */}
+        <div className="mt-4 flex items-center justify-between gap-3">
+          <div className="min-w-0">
+            <h3 className="font-display text-xl sm:text-2xl font-bold tracking-tight text-ink truncate">
+              {profile.name}
+            </h3>
             <p className="mt-0.5 flex flex-wrap items-center gap-1.5 text-sm font-semibold text-royal">
               <span>{profile.role}</span>
               <span className="text-smoke/40">·</span>
               <span className="text-xs font-medium text-smoke">SQA Specialist</span>
             </p>
-
-            <p className="mt-1 flex items-center gap-1 text-xs text-smoke truncate">
-              <GraduationCap size={13} className="text-smoke/80 shrink-0" />
-              <span>Daffodil International University</span>
-            </p>
           </div>
+
+          {/* Copy Email Button */}
+          <button
+            type="button"
+            onClick={handleCopy}
+            className="group/btn relative flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-line bg-cloud text-smoke transition-all duration-200 hover:border-royal/40 hover:bg-royal/5 hover:text-royal hover:shadow-xs"
+            title="Copy email to clipboard"
+            aria-label="Copy email"
+          >
+            {copied ? <Check size={15} className="text-mint" /> : <Copy size={15} />}
+            <AnimatePresence>
+              {copied && (
+                <motion.span
+                  initial={{ opacity: 0, y: 4, scale: 0.9 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  className="absolute -top-8 left-1/2 -translate-x-1/2 rounded bg-ink px-2 py-0.5 font-mono text-[10px] font-medium text-white shadow-lg whitespace-nowrap z-20"
+                >
+                  Email Copied!
+                </motion.span>
+              )}
+            </AnimatePresence>
+          </button>
         </div>
 
-        {/* Bento Information Grid */}
-        <div className="mt-5 grid grid-cols-2 gap-2 text-xs">
-          {/* Location & Real-Time Clock */}
-          <div className="rounded-xl border border-line bg-cloud/70 p-3 transition-all duration-200 hover:bg-cloud hover:border-royal/30 hover:shadow-xs">
+        {/* Compact Bento Metrics (Location & SQA Focus) */}
+        <div className="mt-3.5 grid grid-cols-2 gap-2 text-xs">
+          {/* Location & Live Clock */}
+          <div className="rounded-xl border border-line bg-cloud/70 p-2.5 transition-all duration-200 hover:bg-cloud hover:border-royal/30">
             <div className="flex items-center gap-1.5 font-medium text-[11px] text-smoke">
-              <MapPin size={13} className="text-royal shrink-0" />
+              <MapPin size={12} className="text-royal shrink-0" />
               <span>Location</span>
             </div>
-            <p className="mt-1 font-semibold text-ink leading-tight truncate">Dhaka, Bangladesh</p>
-            <div className="mt-1 flex items-center gap-1 font-mono text-[10px] text-smoke truncate">
+            <p className="mt-0.5 font-semibold text-ink leading-tight truncate">Dhaka, Bangladesh</p>
+            <div className="mt-0.5 flex items-center gap-1 font-mono text-[10px] text-smoke truncate">
               <Clock size={10} className="text-mint shrink-0" />
               <span>{timeString || "Dhaka · UTC+6"}</span>
             </div>
           </div>
 
           {/* SQA Discipline & Quality Metric */}
-          <div className="rounded-xl border border-line bg-cloud/70 p-3 transition-all duration-200 hover:bg-cloud hover:border-mint/30 hover:shadow-xs">
+          <div className="rounded-xl border border-line bg-cloud/70 p-2.5 transition-all duration-200 hover:bg-cloud hover:border-mint/30">
             <div className="flex items-center gap-1.5 font-medium text-[11px] text-smoke">
-              <ShieldCheck size={13} className="text-mint shrink-0" />
+              <ShieldCheck size={12} className="text-mint shrink-0" />
               <span>Discipline</span>
             </div>
-            <p className="mt-1 font-semibold text-ink leading-tight truncate">SQA & Automation</p>
-            <p className="mt-1 font-mono text-[10px] text-mint font-semibold truncate">
+            <p className="mt-0.5 font-semibold text-ink leading-tight truncate">SQA & Automation</p>
+            <p className="mt-0.5 font-mono text-[10px] text-mint font-semibold truncate">
               99.8% Test Pass Rate
             </p>
           </div>
-
-          {/* Availability Status (Spans 2 columns) */}
-          <div className="col-span-2 flex items-center justify-between rounded-xl border border-mint/25 bg-mint/[0.04] px-3.5 py-2.5 transition-colors hover:bg-mint/[0.07]">
-            <div className="flex items-center gap-2">
-              <Sparkles size={14} className="text-mint shrink-0" />
-              <span className="font-semibold text-xs text-ink">Availability</span>
-            </div>
-            <div className="flex items-center gap-1.5 font-mono text-[11px] font-semibold text-mint">
-              <span className="h-1.5 w-1.5 rounded-full bg-mint animate-pulse" />
-              <span>Open to offers (Full-time / Intern)</span>
-            </div>
-          </div>
         </div>
 
-        {/* Tech Arsenal Section with Interactive Toggle */}
-        <div className="mt-5 border-t border-line pt-4">
-          <div className="flex items-center justify-between mb-3">
-            <div className="flex items-center gap-1.5 font-mono text-[11px] font-semibold uppercase tracking-wider text-smoke">
-              <Code2 size={13} className="text-royal" />
-              <span>Tech Arsenal</span>
-            </div>
-
-            {/* Category Switcher Tabs */}
-            <div className="flex items-center rounded-lg bg-cloud p-0.5 border border-line">
-              <button
-                type="button"
-                onClick={() => setActiveTab("core")}
-                className={`cursor-pointer rounded-md px-2.5 py-0.5 font-mono text-[10px] font-semibold transition-all duration-200 ${
-                  activeTab === "core"
-                    ? "bg-white text-royal shadow-xs border border-royal/10"
-                    : "text-smoke hover:text-ink"
-                }`}
-              >
-                Core Stack
-              </button>
-              <button
-                type="button"
-                onClick={() => setActiveTab("testing")}
-                className={`cursor-pointer rounded-md px-2.5 py-0.5 font-mono text-[10px] font-semibold transition-all duration-200 ${
-                  activeTab === "testing"
-                    ? "bg-white text-mint shadow-xs border border-mint/10"
-                    : "text-smoke hover:text-ink"
-                }`}
-              >
-                SQA & Tools
-              </button>
-            </div>
-          </div>
-
-          {/* Skill Pills */}
-          <div className="flex flex-wrap gap-1.5">
-            {TECH_CATEGORIES[activeTab].map((t) => (
-              <span
-                key={t.name}
-                className="group/tag inline-flex items-center gap-1.5 rounded-lg border border-line bg-cloud/80 px-2.5 py-1 font-mono text-[11px] font-medium text-smoke transition-all duration-200 hover:border-royal/40 hover:bg-white hover:text-ink hover:shadow-xs"
-              >
-                {t.highlight && <span className="h-1 w-1 rounded-full bg-royal" />}
-                <span>{t.name}</span>
-                {t.badge && (
-                  <span className="rounded bg-royal/10 px-1 py-0.2 text-[9px] font-bold text-royal">
-                    {t.badge}
-                  </span>
-                )}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        {/* Card Footer / Terminal Quick Connect */}
-        <div className="mt-5 flex items-center justify-between border-t border-line pt-4 text-xs">
-          <div className="flex items-center gap-1.5 font-mono text-[11px] text-smoke">
-            <Terminal size={12} className="text-royal shrink-0" />
-            <span className="font-semibold text-ink">diu</span>
-            <span className="text-smoke/60">:~</span>
-            <span className="text-mint font-medium">$ ready-to-ship</span>
-          </div>
-
-          <div className="flex items-center gap-2">
-            <a
-              href="https://github.com/Saif-AlSaad"
-              target="_blank"
-              rel="noreferrer"
-              className="flex h-7 w-7 items-center justify-center rounded-lg border border-line bg-cloud text-smoke transition-all duration-200 hover:border-ink/40 hover:bg-ink hover:text-white"
-              title="GitHub Profile"
-              aria-label="GitHub Profile"
-            >
-              <GithubIcon size={13} />
-            </a>
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noreferrer"
-              className="flex h-7 w-7 items-center justify-center rounded-lg border border-line bg-cloud text-smoke transition-all duration-200 hover:border-royal/40 hover:bg-royal hover:text-white"
-              title="LinkedIn Profile"
-              aria-label="LinkedIn Profile"
-            >
-              <LinkedinIcon size={13} />
-            </a>
-            <a
-              href={`mailto:${profile.email}`}
-              className="flex items-center gap-1 rounded-lg border border-line bg-cloud px-2 py-1 font-mono text-[10px] font-semibold text-smoke transition-all duration-200 hover:border-royal hover:bg-royal/5 hover:text-royal"
-              title="Direct Email"
-            >
-              <span>Connect</span>
-              <ExternalLink size={10} />
-            </a>
-          </div>
+        {/* University Accreditation Footer Strip */}
+        <div className="mt-3.5 flex items-center justify-between border-t border-line pt-3 text-xs text-smoke">
+          <p className="flex items-center gap-1 text-[11px] truncate">
+            <GraduationCap size={13} className="text-royal shrink-0" />
+            <span className="truncate">Daffodil International University</span>
+          </p>
+          <span className="font-mono text-[10px] font-medium text-smoke/70 shrink-0">
+            SWE · 2026
+          </span>
         </div>
       </motion.div>
     </div>
