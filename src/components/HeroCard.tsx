@@ -165,7 +165,7 @@ export default function HeroCard({ started }: { started: boolean }) {
         {/* Large Prominent Portrait Image Section */}
         <div className="relative mt-4 overflow-hidden rounded-2xl border border-line/80 bg-cloud shadow-sm">
           <img
-            src="./images/portrait.jpg"
+            src="./images/portrait.jpg?v=2"
             alt={profile.name}
             className="h-72 sm:h-80 w-full object-cover object-top transition-transform duration-700 group-hover:scale-103"
           />
