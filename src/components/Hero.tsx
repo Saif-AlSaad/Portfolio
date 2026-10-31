@@ -1,10 +1,11 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, Download, MapPin, BadgeCheck } from "lucide-react";
+import { ArrowRight, Download } from "lucide-react";
 import { profile, about, trustedBy } from "../data/portfolio";
 import { Counter, EASE } from "./typography";
 import Marquee from "./Marquee";
 import { scrollTo } from "../lib/lenis";
+import HeroCard from "./HeroCard";
 
 export default function Hero({ started }: { started: boolean }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -95,71 +96,7 @@ export default function Hero({ started }: { started: boolean }) {
 
           {/* profile card */}
           <motion.div style={{ y: yCard }} className="relative lg:col-span-5">
-            <div className="drift absolute -inset-6 rounded-[2.5rem] bg-gradient-to-br from-royal/15 via-transparent to-indigo-400/15 blur-2xl" />
-            <motion.div
-              initial={{ opacity: 0, y: 50, rotate: 2 }}
-              animate={started ? { opacity: 1, y: 0, rotate: 0 } : {}}
-              transition={{ duration: 1, ease: EASE, delay: 0.55 }}
-              className="card relative rounded-3xl p-6 md:p-7"
-            >
-              <div className="flex items-center gap-4">
-                <div className="relative">
-                  <img
-                    src="./images/portrait.jpg"
-                    alt={profile.name}
-                    className="h-16 w-16 rounded-2xl object-cover"
-                  />
-                  <span className="absolute -bottom-1 -right-1 grid h-5 w-5 place-items-center rounded-full border-2 border-white bg-mint">
-                    <BadgeCheck size={11} className="text-white" />
-                  </span>
-                </div>
-                <div>
-                  <p className="font-display text-lg font-bold tracking-tight">{profile.name}</p>
-                  <p className="text-sm font-medium text-royal">{profile.role}</p>
-                </div>
-                <span className="ml-auto rounded-full border border-line bg-cloud px-3 py-1 font-mono text-[10px] uppercase tracking-wider text-smoke">
-                  ID·2026
-                </span>
-              </div>
-
-              <div className="mt-6 space-y-3 border-t border-line pt-5 text-sm">
-                <div className="flex items-center justify-between">
-                  <span className="flex items-center gap-2 text-smoke">
-                    <MapPin size={14} /> Location
-                  </span>
-                  <span className="font-medium">{profile.location}</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-smoke">Focus</span>
-                  <span className="font-medium">Software Engineering · SQA & Testing</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-smoke">Status</span>
-                  <span className="flex items-center gap-1.5 font-medium text-mint">
-                    <span className="h-1.5 w-1.5 rounded-full bg-mint" /> Open to offers
-                  </span>
-                </div>
-              </div>
-
-              <div className="mt-5 flex flex-wrap gap-1.5 border-t border-line pt-5">
-                {["React", "TypeScript", "Python", "PyTorch", "Node.js", "AWS"].map((t) => (
-                  <span key={t} className="rounded-full bg-cloud px-3 py-1 font-mono text-[11px] text-smoke">
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* floating badge */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.6 }}
-              animate={started ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.7, ease: EASE, delay: 1.1 }}
-              className="card absolute -left-6 -top-6 hidden rounded-2xl px-4 py-3 md:block"
-            >
-              <p className="font-display text-2xl font-bold text-royal">9.1</p>
-              <p className="font-mono text-[10px] uppercase tracking-wider text-smoke">CGPA / 10</p>
-            </motion.div>
+            <HeroCard started={started} />
           </motion.div>
         </div>
 
