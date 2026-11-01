@@ -11,7 +11,6 @@ export default function Hero({ started }: { started: boolean }) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const yCard = useTransform(scrollYProgress, [0, 1], [0, -80]);
-  const fade = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   return (
     <section ref={ref} className="relative overflow-hidden">
@@ -21,7 +20,7 @@ export default function Hero({ started }: { started: boolean }) {
       <div className="drift-2 pointer-events-none absolute right-[-6%] top-[22%] h-[380px] w-[380px] rounded-full bg-indigo-400/10 blur-[110px]" />
       <div className="drift pointer-events-none absolute bottom-[10%] left-[38%] h-[300px] w-[300px] rounded-full bg-sky-300/15 blur-[100px]" />
 
-      <motion.div style={{ opacity: fade }} className="relative z-10 mx-auto max-w-[1200px] px-6 pt-36 md:px-10 md:pt-44">
+      <div className="relative z-10 mx-auto max-w-[1200px] px-6 pt-36 md:px-10 md:pt-44">
         <div className="grid items-center gap-14 lg:grid-cols-12">
           {/* copy */}
           <div className="lg:col-span-7">
@@ -135,7 +134,7 @@ export default function Hero({ started }: { started: boolean }) {
             itemClassName="font-display text-lg font-semibold text-ink/45 md:text-xl"
           />
         </motion.div>
-      </motion.div>
+      </div>
     </section>
   );
 }
