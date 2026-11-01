@@ -112,29 +112,10 @@ export default function HeroCard({ started }: { started: boolean }) {
             }}
           />
 
-          {/* Card Header: Engineering Pass & Verified Tag */}
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <span className="h-2 w-2 rounded-full bg-mint shrink-0" />
-              <span className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-smoke">
-                ENGINEERING PASS
-              </span>
-            </div>
-
-            <div className="flex items-center gap-1.5">
-              <span className="rounded-md border border-line bg-cloud px-2 py-0.5 font-mono text-[10px] text-smoke">
-                ID · 2026
-              </span>
-              <span className="rounded-md bg-mint/15 px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider text-mint">
-                VERIFIED
-              </span>
-            </div>
-          </div>
-
           {/* Central Portrait Image Section */}
           <div
             onClick={() => setIsPhotoOpen(true)}
-            className="group/photo relative mt-4 w-full aspect-[4/4.7] sm:aspect-[4/4.6] cursor-pointer overflow-hidden rounded-[1.6rem] bg-cloud border border-line shadow-xs transition-all duration-300 hover:shadow-md hover:border-royal/30"
+            className="group/photo relative w-full aspect-[4/4.7] sm:aspect-[4/4.6] cursor-pointer overflow-hidden rounded-[1.6rem] bg-cloud border border-line shadow-xs transition-all duration-300 hover:shadow-md hover:border-royal/30"
             title="Click to view full portrait"
             role="button"
             tabIndex={0}
